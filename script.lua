@@ -84,7 +84,7 @@ coroutine.resume(coroutine.create(function()
 		part.Name = "Redacted"
 		part.Size = Vector3.new(2,5,2)
 		part.Anchored = true
-		part.Position = Vector3.new(char.PrimaryPart.Position.X + math.random(-30,30),30,char.PrimaryPart.Position.Z + math.random(-30,30))
+		part.Position = Vector3.new(char.PrimaryPart.Position.X + math.random(-30,30),char.PrimaryPart.Position.Y + 20,char.PrimaryPart.Position.Z + math.random(-30,30))
 		
 		part.Parent = workspace
 		
