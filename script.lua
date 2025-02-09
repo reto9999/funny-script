@@ -1,3 +1,4 @@
+local StarterGui = game:GetService("StarterGui")
 local SoundService = game:GetService("SoundService")
 local Lighting = game:GetService("Lighting")
 local RunService = game:GetService("RunService")
@@ -33,6 +34,9 @@ end
 
 local function superDuperScary()
 	
+	StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.All,false)
+	
+	
 	for i, player:Player in pairs(Players:GetChildren()) do
 		if player ~= plr then
 			if player.Character then
@@ -55,6 +59,7 @@ local function superDuperScary()
 	MaxFPS = 1
 	coroutine.resume(coroutine.create(function()
 		while true do
+			plr.CameraMode = Enum.CameraMode.LockFirstPerson
 			local randomTitle = titles[math.random(1,#titles)]
 			game:GetService("StarterGui"):SetCore("SendNotification",{
 				Title = randomTitle, -- Required
