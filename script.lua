@@ -37,7 +37,6 @@ local function superDuperScary()
 			game:GetService("StarterGui"):SetCore("SendNotification",{
 				Title = randomTitle, -- Required
 				Text = "null", -- Required
-				Icon = "rbxassetid://10630806869" -- Optional
 			})
 			local t0 = tick()
 			RunService.Heartbeat:Wait()
