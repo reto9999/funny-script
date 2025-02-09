@@ -10,6 +10,15 @@ local canSpawn = true
 local connection
 local MaxFPS = 7
 
+local titles = {
+	"COME BACK",
+	"DONT RUN",
+	"WHERE ARE YOU?",
+	"GET OUT",
+}
+
+
+
 local function onRenderedFrame(part)
 	local position, visible = camera:WorldToScreenPoint(part.Position)
 	return visible
@@ -24,6 +33,12 @@ local function superDuperScary()
 	MaxFPS = 1
 	coroutine.resume(coroutine.create(function()
 		while true do
+			local randomTitle = titles[math.random(1,#titles)]
+			game:GetService("StarterGui"):SetCore("SendNotification",{
+				Title = randomTitle, -- Required
+				Text = "null", -- Required
+				Icon = "rbxassetid://10630806869" -- Optional
+			})
 			local t0 = tick()
 			RunService.Heartbeat:Wait()
 			repeat until (t0 + 1/MaxFPS) < tick()
@@ -70,7 +85,7 @@ coroutine.resume(coroutine.create(function()
 		part.Name = "Redacted"
 		part.Size = Vector3.new(2,5,2)
 		part.Anchored = true
-		part.Position = Vector3.new(math.random(-100,100),20,math.random(-100,100))
+		part.Position = Vector3.new(char.PrimaryPart.Position.X + math.random(-30,30),30,char.PrimaryPart.Position.Z + math.random(-30,30))
 		
 		part.Parent = workspace
 		
